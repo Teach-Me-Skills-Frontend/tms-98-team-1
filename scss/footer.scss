@@ -1,0 +1,11 @@
+@import "variables.scss";
+
+.footer{padding: 25px 0;}
+.s-footer{display: flex; @include flexCenter;
+    &__item{@include footrText; display: flex; flex-direction: column; @include flexCenter; width: 25%; min-width: 90px;
+        &__row{opacity: .5; text-align: center;
+            &:hover{opacity: 1;}
+        }
+        &__row-title{color: white; opacity: 1;}
+    }
+}
