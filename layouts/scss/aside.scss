@@ -1,0 +1,9 @@
+@import "variables.scss";
+
+.aside{height: 100vh; width: 200px; position: absolute; top: 128px; z-index: 2; background-color: white; display: flex; flex-direction: column; padding-top: 15px;
+    &__item{display: flex; justify-content: space-between; align-items: center; height: 35px; padding: 0 5px 0 5px;
+        &:hover{background-color: lightgrey;}
+        &__svg{width: 15px;}
+    }
+}
+.aside{display: none;}

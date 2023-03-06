@@ -1,0 +1,39 @@
+@import "variables.scss";
+
+/*! Header
+/*!_________________________________________________________________*/
+
+.s-header{padding: 25px; display: flex; align-items: center; justify-content: space-between;
+    &__burger-wrapper{border: 2px solid rgba(255,255,255, 0.3); border-radius: 25%; width: 45px; height: 45px; padding: 5px;
+        &:hover{border: 2px solid rgba(255,255,255, 1);}
+        &__svg-wrapper{
+            &__svg{width: 45px; height: 45px; fill: $headerText;}
+        }
+    } //burger-wrapper
+    &__logo-text-wrapper{font-size: 35px; height: 50px; display: flex; @include flexCenter; text-transform: uppercase; @include headerText;
+    }
+    &__form{border: 2px solid rgba(255,255,255, 0.3); border-radius: 50px; background-color: rgba(255,255,255, 0.3); padding: 10px 35px 10px 10px;
+        display: flex; @include flexCenter; @include widthFrom;
+        &:hover{background: linear-gradient(90deg,$pinkWB,#481173); border: 2px solid $pinkWB;}
+        &__submit{margin-right: 5px;
+            &__svg{width: 35px; @include heightSvgInp; opacity: .3;
+                &:hover{fill: $headerText; opacity: 1;}
+            }
+        }
+        &__search-inp{width: 500px; @include heightSvgInp; background-color: transparent; border: none; @include widthInp;
+            &:focus{outline:none;}
+        }
+    } //form
+    &__nav-item-wrapper{display: flex; @include flexCenter;
+        &__item{display: flex; flex-direction: column; @include flexCenter; width: 33.3%;
+            &:hover .s-header__nav-item-wrapper__item__svg-wrapper__text{opacity: 1;}
+            &:not(:last-child){margin-right: 15px;}
+            &__svg-wrapper{display: flex; flex-direction: column; @include flexCenter;
+                &__svg{width: 50px; @include heightSvgInp; fill: $headerText;}
+                &__text{color: $headerText; opacity: .5;
+                    &:hover{opacity: 1;}
+                }
+            }
+        }
+    } //nav-item-wrapper
+} //s-header

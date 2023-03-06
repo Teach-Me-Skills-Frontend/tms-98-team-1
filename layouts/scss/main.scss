@@ -1,0 +1,48 @@
+@import "variables.scss";
+
+/* Slider
+___________________________________________*/
+.s-slider{margin: 15px 0;
+    &__slider{border: $pinkWB solid 1px; max-width: 80%; overflow: hidden; position: relative; left: 10%;
+        &__line{display: flex; transition: all ease 1s;}
+    } //slider
+} //s-slider
+
+.slider_btn{width: 5%; height: 100%; border: none;position: absolute; background: #fff; opacity: 0.5;}
+
+.slider_btn:hover{background: $pinkWB; opacity: 0.9; transition: linear 1s;}
+.slider_btn_prev{bottom: 0; left: 0;}
+.slider_btn_next{bottom: 0; right: 0;}
+
+.slider_btn_text{font-size: 50px; font-weight: 900; color: $pinkWB;}
+.slider_btn:hover .slider_btn_text{color: #e8ecee;}
+
+/* Cards
+___________________________________________*/
+.s-cards{display: flex; @include flexCenter; flex-direction: column;
+    &__item-wrapper{width: 100%; display: flex; flex-wrap: wrap;
+        // width: 100%; display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; grid-gap: 11%;
+        &__item{width: 23%; display: flex; justify-content: center; align-items: center; flex-direction: column;
+            &:not(:nth-child(4n+4)){margin-right: 25px;}
+            &-img{width: 100%;}
+            &__wrapper-text{width: 100%; text-align: start;
+                &__delivery-time{text-align: start;}
+                &__name{}
+                &__svg-wrapper{display: flex;
+                    &__svg{width: 25px; height: 25px;}
+                    &__rate{width: 25px; height: 25px; font-size: 25px;}
+                }
+            } // wrapper-text
+            &__btn{color: white; background-color: $pinkWB;
+                &:hover{color: $pinkWB; background-color: white;}
+            } // btn
+        } // item
+    } // item-wrapper
+
+    &__btn{width: 25%; color: $pinkWB; font-weight: 600; margin: 50px 0;
+        &__svg-wrapper{display: flex; @include flexCenter;
+            &__svg{width: 15px; height: 15px; fill: $pinkWB;}
+        }
+    }
+} // s-cards
+

@@ -1,0 +1,10 @@
+@import "variables.scss";
+
+.footer{background-color: #481173; padding: 25px 0;}
+.s-footer{display: flex; @include flexCenter;
+    &__item{@include footrText; display: flex; flex-direction: column; @include flexCenter; width: 25%;
+        &__row{opacity: .5;
+            &:hover{opacity: 1;}
+        }
+    }
+}
