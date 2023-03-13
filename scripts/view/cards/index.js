@@ -1,6 +1,6 @@
 
 export class CardsView {
-  constructor(){
-
+  constructor({cards}){
+    
   }
 }
