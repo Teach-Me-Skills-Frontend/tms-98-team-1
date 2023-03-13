@@ -10,15 +10,16 @@ export class SliderView {
     this.x1 = null;
     this.y1 = null;
 
-    this.autoSlider()
-    this.sliderResize()
+    this.autoSlider();
+    this.sliderResize();
 
     document.querySelector("#slider_next").addEventListener('click', this.next);
     document.querySelector("#slider_prev").addEventListener('click', this.prev);
     window.addEventListener('resize', this.sliderResize);
-    document.addEventListener('touchstart', this.handleTouchStart);
-    document.addEventListener('touchmove', this.handleTouchSMove);
-
+    this.images.forEach( image => {
+      image.addEventListener('touchstart', this.handleTouchStart);
+      image.addEventListener('touchmove', this.handleTouchSMove);
+    })
   }
 
   sliderResize = () => {
@@ -28,7 +29,7 @@ export class SliderView {
           item.style.width = this.width + 'px';
           item.style.height = 'auto';
       });
-      this.rollSlider()
+      this.rollSlider();
   }
 
   rollSlider = () => {
@@ -40,7 +41,7 @@ export class SliderView {
       if (this.count >= this.images.length) {
         this.count = 0;
       }
-      this.rollSlider()
+      this.rollSlider();
   }
 
   prev = () => {
@@ -48,7 +49,7 @@ export class SliderView {
       if (this.count < 0) {
         this.count = this.images.length -1;
     }
-    this.rollSlider()
+    this.rollSlider();
   }
 
   autoSlider = () => {
