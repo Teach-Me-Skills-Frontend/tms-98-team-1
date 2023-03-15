@@ -4,7 +4,7 @@ import { ModalWindowsView } from "./modal_windows/index.js";
 export class WBView {
   constructor({cards}){
     this.slider = new SliderView();
-    this.cardsItems = new CardsView();
+    this.cardsItems = new CardsView({cards});
     this.modalWindows = new ModalWindowsView({cards});
   }
 }
