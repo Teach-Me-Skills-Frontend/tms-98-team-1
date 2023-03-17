@@ -7,7 +7,6 @@ export const cardClassName = {
     deliveryKey: 's-cards__item-wrapper__item__wrapper-text__delivery-time cards-text',
     nameKey: 's-cards__item-wrapper__item__wrapper-text__name cards-text',
     aKey: 's-cards__item-wrapper__item__wrapper-text__svg-wrapper',
-    // svgKey: 's-cards__item-wrapper__item__wrapper-text__svg-wrapper__svg',
     svgKey: 'fa-solid fa-star',
     rateKey: 's-cards__item-wrapper__item__wrapper-text__svg-wrapper__rate cards-text',
     btnKey: 's-cards__item-wrapper__item__btn btn'
