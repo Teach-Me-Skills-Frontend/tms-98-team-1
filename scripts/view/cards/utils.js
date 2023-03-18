@@ -2,7 +2,7 @@ import { cardClassName as clName } from './constants.js';
 
 const {itemKey, imgKey, wrapperTextKey, priceKey, deliveryKey, nameKey, aKey, svgKey, rateKey, btnKey} = clName;
 
-export function createItem ({img, cardName, price, cardRate, id}) {
+export function createItem ({img, cardName, price, cardRate, id, deliveryMonth, deliveryDate}) {
 
     const item = createEl('div',{class: itemKey, id: `${id}`});
     
@@ -15,8 +15,8 @@ export function createItem ({img, cardName, price, cardRate, id}) {
     const priceEl = createEl('div',{class: priceKey}, `${price} byn`);
     wrapperText.append(priceEl);
 
-    const delivery = createEl('div',{class: deliveryKey}, 'Доставка 10-11 марта');
-    wrapperText.append(delivery);
+    const deliveryEl = createEl('div',{class: deliveryKey}, `Delivery: ${deliveryMonth} ${deliveryDate}`);
+    wrapperText.append(deliveryEl);
 
     const name = createEl('div',{class: nameKey}, `${cardName}`);
     wrapperText.append(name);

@@ -16,11 +16,19 @@ export class WBController {
 
   cardCreate = (cards) => {
     this.storage.setCards(cards)
-    console.log(this.storage.getCards())
+    this.view.renderCards(cards)
   }
 
   initiliaze = (url) => {
     this.server.getServerCards(url).then(cards => {
+      cards.forEach(element => {
+        if (element.cardRate >= 5){
+          element.cardRate = Math.floor(Math.random() * 5) + 1;
+        }
+        if(element.deliveryDate > 31){
+          element.deliveryDate = Math.floor(Math.random() * 10) + 1
+        }
+      });
       this.cardCreate(cards)
     })
     
