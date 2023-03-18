@@ -17,9 +17,9 @@ export class SliderView {
     this.sliderResize();
 
     this.slider.addEventListener('click', ({ target }) => {
-      if(target.id === this.idSlider.sliderPrev || this.idSlider.sliderPrev1){
+      if(target.id === this.idSlider.sliderPrev){
         this.prev()
-      }else if(target.id === this.idSlider.sliderNext || target.id === this.idSlider.sliderNext1){
+      }else if(target.id === this.idSlider.sliderNext){
         this.next()
       }
     });
@@ -50,7 +50,8 @@ export class SliderView {
       this.count++;
       if (this.count >= this.images.length) {
         this.count = 0;
-      }
+      };
+      
       this.rollSlider();
   }
 

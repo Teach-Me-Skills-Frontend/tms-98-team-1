@@ -103,92 +103,9 @@
 </aside>
 </g>
 
-<!-- Modal User -->
-<g>
-<div class="modal-user">
-    <div class="modal-user__title modal-text">
-        Вход:
-    </div>
-    <form class="modal-user__form">
-        <input class="modal-user__form__input" type="text" placeholder="Введите ваше имя">
-        <button class="modal-user__form__btn btn" type="submit">Вход</button>
-    </form>
-</div>
-</g>
-
-<!-- Modal shopping cart -->
-<g>
-<div class="modal-s-cart">
-    <div class="modal-s-cart__title modal-text">
-        Корзина
-    </div><!-- title -->
-    <div class="modal-s-cart__content-wrapper">
-
-        <div class="modal-s-cart__content-wrapper__row">
-            <div class="modal-s-cart__content-wrapper__row__number">
-                1
-            </div><!-- number -->
-            <div class="modal-s-cart__content-wrapper__row__name">
-                Салфетки
-            </div>
-            <a class="modal-s-cart__content-wrapper__row__del">
-                Удалить товар
-            </a>
-        </div><!-- row -->
-
-        <div class="modal-s-cart__content-wrapper__row">
-            <div class="modal-s-cart__content-wrapper__row__number">
-                1
-            </div><!-- number -->
-            <div class="modal-s-cart__content-wrapper__row__name">
-                Салфетки
-            </div>
-            <a class="modal-s-cart__content-wrapper__row__del">
-                Удалить товар
-            </a>
-        </div><!-- row -->
-        <div class="modal-s-cart__content-wrapper__row">
-            <div class="modal-s-cart__content-wrapper__row__number">
-                1
-            </div><!-- number -->
-            <div class="modal-s-cart__content-wrapper__row__name">
-                Салфетки
-            </div>
-            <a class="modal-s-cart__content-wrapper__row__del">
-                Удалить товар
-            </a>
-        </div><!-- row -->
-    </div><!-- content-wrapper -->
-    <button class="modal-s-cart__btn btn">
-        Оформить заказ
-    </button>
-
-</div><!-- modal-s-cart -->
-</g>
-
-<!-- Modal Cadr -->
-<g>
-<div class="modal-cart-det">
-    <div class="modal-cart-det__img-wrap">
-        <img class="modal-cart-det__img-wrap_img" src="https://basket-05.wb.ru/vol771/part77194/77194144/images/big/1.jpg" alt="">
-    </div><!-- img-wrap -->
-    <div class="modal-cart-det__desc-wrap">
-        <div class="modal-cart-det__desc-wrap__title">Название товара</div>
-        <div class="modal-cart-det__desc-wrap__price">15 byn</div>
-        <a href="#!" class="modal-cart-det__desc-wrap__svg-wrapper"> 
-            <svg class="modal-cart-det__desc-wrap__svg-wrapper__svg">
-                <use xlink:href="#star"></use>
-            </svg>
-            <div class="modal-cart-det__desc-wrap__svg-wrapper__rate cards-text">5</div>
-        </a> <!-- svg-wrapper -->
-        <button class="modal-cart-det__desc-wrap__btn btn" data-row-btn="">В корзину</button> <!-- TODO  data-row-btn - такой-же как id карточки -->
-    </div><!-- decript-wrap -->
-</div><!-- modal-cart-det -->
-</g>
-
 <body>
 <!-- Header -->
-<header class="header">
+<header class="header" id="header">
 <div class="container">
 <section class="s-header section">
     <div class="s-header__burger-wrapper">
@@ -212,22 +129,12 @@
         <input class="s-header__form__search-inp" type="text">
     </form>
     <div class="s-header__nav-item-wrapper">
-        <div class="s-header__nav-item-wrapper__item" id="delivery">
-            <a href="#!" class="s-header__nav-item-wrapper__item__svg-wrapper">
-                <svg class="s-header__nav-item-wrapper__item__svg-wrapper__svg">
-                    <use xlink:href="#delivery"></use>
-                </svg>
-                <div class="s-header__nav-item-wrapper__item__svg-wrapper__text">Доставки</div>
-            </a> <!-- svg-wrapper -->
-            
-        </div> <!-- nav-item -->
-
         <div class="s-header__nav-item-wrapper__item">
             <a href="#!" class="s-header__nav-item-wrapper__item__svg-wrapper">
                 <svg class="s-header__nav-item-wrapper__item__svg-wrapper__svg">
                     <use xlink:href="#profile"></use>
                 </svg>
-                <div class="s-header__nav-item-wrapper__item__svg-wrapper__text">Профиль</div>
+                <div class="s-header__nav-item-wrapper__item__svg-wrapper__text" id="user">Профиль</div>
             </a> <!-- svg-wrapper -->
         </div> <!-- nav-item -->
 
@@ -236,7 +143,7 @@
                 <svg class="s-header__nav-item-wrapper__item__svg-wrapper__svg">
                     <use xlink:href="#shoppingСart"></use>
                 </svg>
-                <div class="s-header__nav-item-wrapper__item__svg-wrapper__text">Корзина</div>
+                <div class="s-header__nav-item-wrapper__item__svg-wrapper__text" id="cart">Корзина</div>
             </a> <!-- svg-wrapper -->
         </div> <!-- nav-item -->
         
@@ -257,10 +164,10 @@
             <img src="./img/slider/img/big_skidki_3_2_23.jpg" alt="">
         </div> <!-- slider__line -->
         <button class="slider_btn slider_btn_prev" id="slider_prev">
-            <div class="slider_btn_text"> < </div>
+            <
         </button>
         <button class="slider_btn slider_btn_next" id="slider_next">
-            <div class="slider_btn_text"> > </div>
+            >
         </button>
     </div> <!-- slider -->
 </section> <!-- s-slider -->
@@ -270,32 +177,16 @@
 <div class="container">
 <section class="s-cards section">
     <div class="s-cards__item-wrapper">
-        
-        <div class="s-cards__item-wrapper__item">
-            <img class="s-cards__item-wrapper__item-img" src="https://basket-05.wb.ru/vol771/part77194/77194144/images/big/1.jpg" alt="">
-            <div class="s-cards__item-wrapper__item__wrapper-text">
-                <div class="s-cards__item-wrapper__item__wrapper-text__price cards-text">5.06 byn</div>
-                <div class="s-cards__item-wrapper__item__wrapper-text__delivery-time cards-text">10-11 марта</div>
-                <div class="s-cards__item-wrapper__item__wrapper-text__name cards-text">Салфетки бумажные</div>
-                <a href="#!" class="s-cards__item-wrapper__item__wrapper-text__svg-wrapper"> 
-                    <svg class="s-cards__item-wrapper__item__wrapper-text__svg-wrapper__svg">
-                        <use xlink:href="#star"></use>
-                    </svg>
-                    <div class="s-cards__item-wrapper__item__wrapper-text__svg-wrapper__rate cards-text">5</div>
-                </a> <!-- svg-wrapper -->
-                <button class="s-cards__item-wrapper__item__btn btn" data-row-btn="">В корзину</button> <!-- TODO  data-row-btn - такой-же как id карточки -->
-            </div>
-        </div> <!-- item -->
 
     </div> <!-- item-wrapper -->
 
     <button class="s-cards__btn btn">
         <!-- <div class="s-cards__btn__text">Показать ещё</div> -->
-        <a href="#!" class="s-cards__btn__svg-wrapper">Показать ещё
+        <span href="#!" class="s-cards__btn__svg-wrapper">Показать ещё
             <svg class="s-cards__btn__svg-wrapper__svg">
                 <use xlink:href="#arrowDown"></use>
             </svg>
-        </a> <!-- svg-wrapper -->
+        </span> <!-- svg-wrapper -->
     </button>
 </section> <!-- s-cards -->
 </div> <!-- container -->

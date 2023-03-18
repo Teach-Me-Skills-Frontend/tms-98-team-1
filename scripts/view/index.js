@@ -7,4 +7,8 @@ export class WBView {
     this.cardsItems = new CardsView({cards});
     this.modalWindows = new ModalWindowsView({cards});
   }
+
+  renderCards = (cards) => {
+    this.cardsItems.createCards(cards);
+  }
 }
