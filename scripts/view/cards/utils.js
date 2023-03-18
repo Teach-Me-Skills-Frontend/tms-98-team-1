@@ -12,7 +12,7 @@ export function createItem ({img, cardName, price, cardRate, id, deliveryMonth, 
     const wrapperText = createEl('div',{class: wrapperTextKey});
     item.append(wrapperText);
 
-    const priceEl = createEl('div',{class: priceKey}, `${price} byn`);
+    const priceEl = createEl('div',{class: priceKey}, `${price} BYN`);
     wrapperText.append(priceEl);
 
     const deliveryEl = createEl('div',{class: deliveryKey}, `Delivery: ${deliveryMonth} ${deliveryDate}`);
@@ -31,7 +31,7 @@ export function createItem ({img, cardName, price, cardRate, id, deliveryMonth, 
     a.append(rate);
 
     const button = createEl('button',{class: btnKey, data_row_btn: `${id}`}, 'В корзину');
-    button.setAttribute('data-row-btn', 'бла-бла-бла')
+    button.setAttribute('data-row-btn', `${id}`)
     wrapperText.append(button);
 
     return item;

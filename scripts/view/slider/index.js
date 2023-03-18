@@ -19,7 +19,7 @@ export class SliderView {
     this.slider.addEventListener('click', ({ target }) => {
       if(target.id === this.idSlider.sliderPrev){
         this.prev()
-      }else if(target.id === this.idSlider.sliderNext){
+      }else if(target.id === this.idSlider.sliderNext ){
         this.next()
       }
     });
