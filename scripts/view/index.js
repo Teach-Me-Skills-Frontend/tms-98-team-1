@@ -6,6 +6,10 @@ export class WBView {
     this.slider = new SliderView();
     this.cardsItems = new CardsView({cards});
     this.modalWindows = new ModalWindowsView({cards});
+    this.burger = document.getElementById('burger');
+    this.burger.addEventListener('click', () => {
+      document.getElementById('aside').classList.toggle('active_aside')
+    })
   }
 
   renderCards = (cards) => {

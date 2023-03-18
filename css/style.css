@@ -527,7 +527,7 @@ ___________________________________________*/
   background-color: white;
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -552,9 +552,8 @@ ___________________________________________*/
 .aside__item__svg {
   width: 15px;
 }
-
-.aside {
-  display: none;
+.active_aside{
+  display: flex;
 }
 
 /*! Modal User
