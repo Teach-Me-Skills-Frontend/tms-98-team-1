@@ -30,7 +30,7 @@ export function createItem ({img, cardName, price, cardRate, id, deliveryMonth, 
     const rate = createEl('div',{class: rateKey}, `${cardRate}`);
     a.append(rate);
 
-    const button = createEl('button',{class: btnKey, data_row_btn: `${id}`}, 'В корзину');
+    const button = createEl('button',{class: btnKey, id : 'toCartBtn'}, 'В корзину');
     button.setAttribute('data-row-btn', `${id}`)
     wrapperText.append(button);
 
