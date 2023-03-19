@@ -2,13 +2,14 @@ import { SliderView } from "./slider/index.js";
 import { CardsView } from "./cards/index.js";
 import { ModalWindowsView } from "./modal_windows/index.js";
 export class WBView {
-  constructor({cards}){
+  constructor({onToCartPurchase}){
     this.slider = new SliderView();
-    this.cardsItems = new CardsView({cards});
-    this.modalWindows = new ModalWindowsView({cards});
+    this.cardsItems = new CardsView(onToCartPurchase);
+    this.modalWindows = new ModalWindowsView();
     this.burger = document.getElementById('burger');
-    this.overlayRender = this.overlay()
-    this.showMore = document.getElementById('show_more')
+    this.overlayRender = this.overlay();
+    this.showMore = document.getElementById('show_more');
+    this.scrollArrow = document.getElementById('arrow_top');
 
 
     this.burger.addEventListener('click', () => {
@@ -26,14 +27,20 @@ export class WBView {
       this.renderMoreCards()
       if(document.getElementById('show_more_text').textContent === 'Показать ещё'){
         this.showMore.innerHTML = 
-         ` <p href="#!" class="s-cards__btn-show_more" id="show_more_text">Скрыть</p>
-         <i class="fa-solid fa-arrow-up"></i>`     
+        `<p class="s-cards__btn-show_more" id="show_more_text">Скрыть</p>
+        <i class="fa-solid fa-arrow-up"></i>`     
       }
       else {
-         this.showMore.innerHTML = 
-        `<p href="#!" class="s-cards__btn-show_more" id="show_more_text">Показать ещё</p> 
-         <i class="fa-solid fa-arrow-down"></i>`
+        this.showMore.innerHTML = 
+        `<p class="s-cards__btn-show_more" id="show_more_text">Показать ещё</p> 
+        <i class="fa-solid fa-arrow-down"></i>`
       }
+    })
+
+    this.scrollArrow.addEventListener('click', this.scrollToTop)
+
+    this.scroll = window.addEventListener('scroll', () => {
+      this.scrollArrow.classList.toggle('active', scrollY > 500)
     })
     }
   
@@ -43,7 +50,8 @@ export class WBView {
   }
 
   overlay = () => {
-    const overlay = document.getElementById('overlay')
+    const overlay = document.createElement('div');
+    overlay.classList.add('overlay')
     document.body.append(overlay);
     return overlay;
   }
@@ -51,4 +59,11 @@ export class WBView {
   renderMoreCards = () => {
     document.getElementById('cards_wrapper').classList.toggle('s-cards__item-wrapper_active')
   }
+  
+  scrollToTop = () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    };
 }

@@ -1,5 +1,6 @@
 const LocalStorageKey = {
-  cards: 'cards'
+  cards: 'cards',
+  cardsInCart: 'cart'
 };
 
 export class WBData {
@@ -22,9 +23,9 @@ export class WBData {
         this.shopCards.push(el)
       };
     });
+    localStorage.setItem(LocalStorageKey.cardsInCart, JSON.stringify(this.shopCards))
   }
   getShopCards = () => {
-    console.log(this.shopCards)
-    return this.shopCards;
+    return this.shopCards.slice();
   }
 }
