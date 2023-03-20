@@ -6,6 +6,7 @@
         &__row{opacity: .5; text-align: center;
             &:hover{opacity: 1;}
         }
-        &__row-title{color: white; opacity: 1;}
+        &__row-title{color: white; opacity: 1; cursor: default; margin-bottom: 1%;}
     }
 }
+.footer-adapt{display: none;}
