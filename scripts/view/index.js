@@ -1,9 +1,11 @@
 import { SliderView } from "./slider/index.js";
 import { CardsView } from "./cards/index.js";
+import { Search } from "./search/index.js"; //todo search
 import { ModalWindowsView } from "./modal_windows/index.js";
 export class WBView {
-  constructor({onToCartPurchase}){
+  constructor({onToCartPurchase, search}){ //todo search прокинул
     this.slider = new SliderView();
+    this.search = new Search(search); //todo search
     this.cardsItems = new CardsView(onToCartPurchase);
     this.modalWindows = new ModalWindowsView();
     this.burger = document.getElementById('burger');

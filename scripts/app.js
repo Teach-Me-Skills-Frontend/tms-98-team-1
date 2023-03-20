@@ -10,9 +10,17 @@ export class WBController {
     this.view = new WBView({
       cards : this.storage.getCards(),
       onCreateCards : this.cardCreate,
-      onToCartPurchase : this.cardToCart
+      onToCartPurchase : this.cardToCart,
+      search: this.search  //todo search
     });
     
+  }
+
+  search = (searchValue, cards) => {  //todo search
+    console.log(this.storage.setCards(cards))
+      //todo search чёт не могу получить твой массив cards.
+      //todo Но по логике, тут нужно что-то вроде, перебрать твои кардс и если имя карточки совпало с велью закинуть в массив найденных карточек и
+      // todo this.view.renderCards(массив найденных карточек)
   }
 
   cardCreate = (cards) => {
