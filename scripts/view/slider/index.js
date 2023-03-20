@@ -17,9 +17,9 @@ export class SliderView {
     this.sliderResize();
 
     this.slider.addEventListener('click', ({ target }) => {
-      if(target.id === this.idSlider.sliderPrev){
+      if(target.id === this.idSlider.sliderPrev || target.id === this.idSlider.sliderPrev1){
         this.prev()
-      }else if(target.id === this.idSlider.sliderNext ){
+      }else if(target.id === this.idSlider.sliderNext || target.id === this.idSlider.sliderNext1){
         this.next()
       }
     });

@@ -24,10 +24,10 @@ export function createItem ({img, cardName, price, cardRate, id, deliveryMonth, 
     const a = createEl('a',{class: aKey});
     wrapperText.append(a);
 
-    const svg = createEl('i',{class: svgKey});
+    const svg = createEl('i',{class: svgKey, style: 'display: flex;align-items: center;'});
     a.append(svg);
 
-    const rate = createEl('div',{class: rateKey}, `${cardRate}`);
+    const rate = createEl('span',{class: rateKey}, `${cardRate}`);
     a.append(rate);
 
     const button = createEl('button',{class: btnKey, id : 'toCartBtn'}, 'В корзину');

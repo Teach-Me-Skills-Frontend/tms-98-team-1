@@ -2,7 +2,7 @@
 
 /*! Asaide
 /*!_________________________________________________________________*/
-.aside{height: 100vh; width: 200px; position: absolute; top: 118px; z-index: 2; background-color: white; display: flex; flex-direction: column;
+.aside{height: 100vh; width: 200px; position: absolute; top: 106px; left: 0; z-index: 2; background-color: white; display: flex; flex-direction: column;
     &__item{display: flex; justify-content: space-between; align-items: center; height: 35px; padding: 0 5px 0 5px;
         &:hover{background-color: lightgrey;}
         &__svg{width: 15px;}
@@ -59,7 +59,7 @@
         &__btn{@extend .s-cards__item-wrapper__item__btn; margin-top: 15px;
             &:hover{color: $pinkWB; background-color: white;}
         }
-    }//<!-- decript-wrap -->
-}//modal-cart-det
+    }
+}
 
 .modal-cart-det{display: none;}

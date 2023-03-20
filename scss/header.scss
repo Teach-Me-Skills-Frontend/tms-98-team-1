@@ -4,37 +4,37 @@
 /*!_________________________________________________________________*/
 #delivery{display: none;}
 .s-header{padding: 25px; display: flex; align-items: center; justify-content: space-between;
-    &__burger-wrapper{border: 2px solid rgba(255,255,255, 0.3); border-radius: 25%; padding: 5px; @include svgSizeBurger;
+    &__burger-wrapper{border: 2px solid $headerHover; border-radius: 25%; padding: 5px; @include svgSizeBurger; display: flex; @include flexCenter; cursor: pointer;
         &:hover{border: 2px solid rgba(255,255,255, 1);}
-        &__svg-wrapper{
-            &__svg{@include svgSizeBurger; fill: $headerText;}
-        }
-    } //burger-wrapper
+        &:hover .fa-bars{color: rgba(255, 255, 255, 1);}
+    }
     &__logo-text-wrapper{font-size: 35px; height: 50px; display: flex; @include flexCenter; text-transform: uppercase; @include headerText;
     }
-    &__form{border: 2px solid rgba(255,255,255, 0.3); border-radius: 50px; background-color: rgba(255,255,255, 0.3); padding: 0 15px;
+
+    &__form{border: 2px solid $headerHover; border-radius: 50px; background-color: $headerHover; padding: 0 15px;
         display: flex; @include flexCenter; @include widthFrom;
-        &:hover{background: linear-gradient(90deg, $pinkWB,#481173); border: 2px solid $pinkWB;}
+        &:hover{background: $headerHoverAc; border: 2px solid $headerHoverAc;}
         &__submit{margin-right: 5px;
-            &__svg{width: 30px; @include heightSvgInp; opacity: .3;
-                &:hover{fill: $headerText; opacity: 1;}
-            }
         }
         &__search-inp{@include heightSvgInp; background-color: transparent; border: none; @include widthInp;
             &:focus{outline:none;}
+            &::placeholder{color: white;}
         }
-    } //form
-    &__nav-item-wrapper{display: flex; @include flexCenter;
-        &__item{display: flex; flex-direction: column; @include flexCenter; width: 50%;
-            // width: 33.3%;
+    }
+
+    &__nav-item-wrapper{display: flex; @include flexCenter; cursor: pointer;
+        &__item{display: flex; width: 50%;
             &:hover .s-header__nav-item-wrapper__item__svg-wrapper__text{opacity: 1;}
             &:not(:last-child){margin-right: 15px;}
-            &__svg-wrapper{display: flex; flex-direction: column; @include flexCenter;
-                &__svg{width: 30px; @include heightSvgInp; fill: $headerText;}
-                &__text{color: $headerText; opacity: .5;
-                    &:hover{opacity: 1;}
-                }
-            }
         }
-    } //nav-item-wrapper
-} //s-header
+    }
+}
+
+.fa-bars{font-size: 35px; color: $headerHover;
+    &:hover{color: rgba(255, 255, 255, 1);}
+}
+.fa-magnifying-glass{color: white;}
+.fa-cart-shopping,.fa-user{font-size: 21px; margin-bottom: 10px;}
+.s-header__nav-item-wrapper__item__icon-wrapper__text{display: flex; flex-direction: column; @include flexCenter; color: $headerHover;
+    &:hover{color: rgba(255, 255, 255, 1);}
+}

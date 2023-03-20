@@ -11,6 +11,11 @@ ___________________________________________*/
 $pinkWB: #cb11ab;
 $modalText: black;
 $cardsText: black;
+$headerHoverAc:rgba(255, 255, 255, 0.6);
+$headerHover:rgba(255, 255, 255, 0.3);
+
+$adaptFooterHoverAc:rgba(255, 255, 255, 0.6);
+$adaptFooterHover:rgba(255, 255, 255, 0.3);
 
 $headerText: rgba(255,255,255, 1);
 @mixin headerText {color: $headerText;}
