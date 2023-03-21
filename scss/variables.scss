@@ -1,9 +1,18 @@
 /* Center
 ___________________________________________*/
 
-@mixin flexCenter {align-items: center; justify-content: center;}
-@mixin blockCenter {margin: 0% auto;}
-@mixin modalCenter {top: 50%; left: 50%; transform: translate(-50%, -50%);}
+@mixin flexCenter {
+  align-items: center;
+  justify-content: center;
+}
+@mixin blockCenter {
+  margin: 0% auto;
+}
+@mixin modalCenter {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 /* Color
 ___________________________________________*/
@@ -11,32 +20,52 @@ ___________________________________________*/
 $pinkWB: #cb11ab;
 $modalText: black;
 $cardsText: black;
-$headerHoverAc:rgba(255, 255, 255, 0.6);
-$headerHover:rgba(255, 255, 255, 0.3);
+$headerHoverAc: rgba(255, 255, 255, 0.6);
+$headerHover: rgba(255, 255, 255, 0.3);
 
-$adaptFooterHoverAc:rgba(255, 255, 255, 0.6);
-$adaptFooterHover:rgba(255, 255, 255, 0.3);
+$adaptFooterHover: rgba(255, 255, 255, 0.8);
+$adaptFooterAc: rgba(255, 255, 255, 0.4);
 
-$headerText: rgba(255,255,255, 1);
-@mixin headerText {color: $headerText;}
+$headerText: rgba(255, 255, 255, 1);
+@mixin headerText {
+  color: $headerText;
+}
 
-$footrText: rgba(255,255,255, 1);
-@mixin footrText {color: $footrText;}
+$footrText: rgba(255, 255, 255, 1);
+@mixin footrText {
+  color: $footrText;
+}
 
 /* Size
 ___________________________________________*/
 $SizeSvgRate1450: 17px;
 
-@mixin heightSvgInp {height: 50px;}
-@mixin widthFrom {width: 55%;}
-@mixin widthInp {width: 95%;}
+@mixin heightSvgInp {
+  height: 50px;
+}
+@mixin widthFrom {
+  width: 55%;
+}
+@mixin widthInp {
+  width: 95%;
+}
 
-@mixin svgSizeBurger {width: 35px; height: 35px;}
+@mixin svgSizeBurger {
+  width: 35px;
+  height: 35px;
+}
 
 /* Modal
 ___________________________________________*/
-@mixin modalWindow {background-color: white; display: flex; flex-direction: column;}
+@mixin modalWindow {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
 
 /* Font Size
 ___________________________________________*/
-@mixin FontsCart {font-size: 17px; font-weight: 600;}
+@mixin FontsCart {
+  font-size: 17px;
+  font-weight: 600;
+}
