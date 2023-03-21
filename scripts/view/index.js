@@ -1,5 +1,6 @@
 import { SliderView } from "./slider/index.js";
 import { CardsView } from "./cards/index.js";
+import { UserAuthorization } from "./userAuthorization/index.js"; //todo user
 import { ModalWindowsView } from "./modal_windows/index.js";
 import { Search } from "./search/index.js";
 import { serachForm } from "./search/constants.js";
@@ -7,6 +8,7 @@ import { serachForm } from "./search/constants.js";
 export class WBView {
   constructor({onToCartPurchase, onSearch}){
     this.slider = new SliderView();
+    this.slider = new UserAuthorization(); //todo user Нужно прокинуть userName
     this.cardsItems = new CardsView(onToCartPurchase);
     this.search = new Search(onSearch);
     this.modalWindows = new ModalWindowsView();

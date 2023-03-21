@@ -45,7 +45,7 @@ export function createEmptyItem(){
 // Функции создания элементов
 //_________________________________________
 
-function createEl(tag, elProps, text = ''){
+export function createEl(tag, elProps, text = ''){
     const el = document.createElement(tag)
     el.textContent = text
     for (const key in elProps) {
