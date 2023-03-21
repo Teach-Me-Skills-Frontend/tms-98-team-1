@@ -1,9 +1,9 @@
 import {createItem, createEmptyItem} from './utils.js';
-import {container} from './constants.js';
+import {wrapperItems} from './constants.js';
 
 export class CardsView {
     constructor(onToCartPurchase){
-    this.container = container
+    this.container = wrapperItems
     this.item = createItem;
     this.toCart = onToCartPurchase;
     }

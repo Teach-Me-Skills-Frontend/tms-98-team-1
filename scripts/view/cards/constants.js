@@ -1,4 +1,4 @@
-export const container = document.querySelector('.s-cards__item-wrapper')
+export const wrapperItems = document.querySelector('.s-cards__item-wrapper')
 export const cardClassName = {
     itemKey: 's-cards__item-wrapper__item',
     imgKey: 's-cards__item-wrapper__item-img',

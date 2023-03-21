@@ -1,16 +1,21 @@
 import { SliderView } from "./slider/index.js";
 import { CardsView } from "./cards/index.js";
 import { ModalWindowsView } from "./modal_windows/index.js";
+import { Search } from "./search/index.js";
+import { serachForm } from "./search/constants.js";
+
 export class WBView {
-  constructor({onToCartPurchase}){
+  constructor({onToCartPurchase, onSearch}){
     this.slider = new SliderView();
     this.cardsItems = new CardsView(onToCartPurchase);
+    this.search = new Search(onSearch);
     this.modalWindows = new ModalWindowsView();
     this.burger = document.getElementById('burger');
     this.overlayRender = this.overlay();
+    this.cardsWrapper = document.getElementById('cards_wrapper')
     this.showMore = document.getElementById('show_more');
     this.scrollArrow = document.getElementById('arrow_top');
-
+    this.searchForm = serachForm;
 
     this.burger.addEventListener('click', () => {
       document.getElementById('aside').classList.toggle('aside__active');
@@ -42,6 +47,11 @@ export class WBView {
     this.scroll = window.addEventListener('scroll', () => {
       this.scrollArrow.classList.toggle('active', scrollY > 500)
     })
+    this.searchForm.addEventListener('submit', (event) => {
+      event.preventDefault()
+      this.cardsWrapper.innerHTML = '';
+      this.renderSerch()
+    })
     }
   
 
@@ -66,4 +76,8 @@ export class WBView {
         behavior: 'smooth'
       });
     };
+
+    renderSerch = () => {
+      this.search.createSearchRow()
+    }
 }

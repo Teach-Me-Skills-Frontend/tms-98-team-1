@@ -38,7 +38,7 @@ export function createItem ({img, cardName, price, cardRate, id, deliveryMonth, 
 }
 
 export function createEmptyItem(){
-    const emptyItem = createEl('div',{}, 'Что-то пошло не так, товаров нет');
+    const emptyItem = createEl('div',{class: 'cards__wrapper-empty'}, 'Запрашиваемые вами товары не были найдены! Повторите поиск');
     return emptyItem
 }
 
