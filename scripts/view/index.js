@@ -13,13 +13,13 @@ export class WBView {
 
 
     this.burger.addEventListener('click', () => {
-      document.getElementById('aside').classList.toggle('active_aside');
+      document.getElementById('aside').classList.toggle('aside__active');
       document.body.classList.add('__lock')
       this.overlayRender.style.visibility = 'visible'
     })
     this.overlayRender.addEventListener('click', () => {
       this.overlayRender.style.visibility = 'hidden'
-      document.getElementById('aside').classList.toggle('active_aside')
+      document.getElementById('aside').classList.toggle('aside__active')
       document.body.classList.remove('__lock')
     })
 
@@ -57,7 +57,7 @@ export class WBView {
   }
 
   renderMoreCards = () => {
-    document.getElementById('cards_wrapper').classList.toggle('s-cards__item-wrapper_active')
+    document.getElementById('cards_wrapper').classList.toggle('s-cards__item-wrapper__active')
   }
   
   scrollToTop = () => {
