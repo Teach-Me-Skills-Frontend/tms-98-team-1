@@ -28,4 +28,13 @@ export class WBData {
   getShopCards = () => {
     return this.shopCards.slice();
   }
+
+  getSearch = (serchValue) => {
+    if(serchValue){
+      return this.cards.slice().filter((el) => el.cardName === serchValue);
+    }
+    else {
+      return this.cards.slice()
+    }
+  }
 }

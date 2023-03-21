@@ -10,7 +10,8 @@ export class WBController {
     this.view = new WBView({
       cards : this.storage.getCards(),
       onCreateCards : this.cardCreate,
-      onToCartPurchase : this.cardToCart
+      onToCartPurchase : this.cardToCart,
+      onSearch : this.search
     });
     
   }
@@ -24,6 +25,10 @@ export class WBController {
     this.storage.pushShopCards(cardId);
   }
 
+  search = (searchValue) => {
+    this.view.renderCards(this.storage.getSearch(searchValue))
+  }
+
   initiliaze = (url) => {
     this.server.getServerCards(url).then(cards => {
       cards.forEach(element => {
@@ -33,6 +38,7 @@ export class WBController {
         if(element.deliveryDate > 31){
           element.deliveryDate = Math.floor(Math.random() * 10) + 1
         }
+        element.id = window.crypto.randomUUID();
       });
       this.cardCreate(cards)
     })
