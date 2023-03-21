@@ -1,49 +1,225 @@
 @import "variables.scss";
 
-.main{border: 1px solid white; border-radius: 24px; background-color: white;}
+.main {
+  border: 1px solid white;
+  border-radius: 24px;
+  background-color: white;
+}
+.fa-star {
+  display: flex;
+  align-items: center;
+}
 
 /* Slider
 ___________________________________________*/
-.s-slider{margin: 15px 0;
-    &__slider{border: $pinkWB solid 1px; max-width: 80%; overflow: hidden; position: relative; left: 10%;
-        &__line{display: flex; transition: all ease 1s;}
-    } //slider
-} //s-slider
+.s-slider {
+  margin: 15px 0;
+  &__slider {
+    border: $pinkWB solid 1px;
+    max-width: 80%;
+    overflow: hidden;
+    position: relative;
+    left: 10%;
+    &__line {
+      display: flex;
+      transition: all ease 1s;
+    }
+  }
+}
 
-.slider_btn{width: 5%; height: 100%; border: none;position: absolute; background: #fff; opacity: 0.5;}
+.slider_btn {
+  width: 5%;
+  height: 100%;
+  border: none;
+  position: absolute;
+  background: #fff;
+  opacity: 0.5;
+  display: flex;
+  @include flexCenter;
+}
 
-.slider_btn:hover{background: $pinkWB; opacity: 0.9; transition: linear .5s;}
-.slider_btn_prev{bottom: 0; left: 0;}
-.slider_btn_next{bottom: 0; right: 0;}
+.slider_btn:hover {
+  background: $pinkWB;
+  opacity: 0.9;
+  transition: linear 0.5s;
+}
+.slider_btn_prev {
+  bottom: 0;
+  left: 0;
+  cursor: pointer;
+}
+.slider_btn_next {
+  bottom: 0;
+  right: 0;
+  cursor: pointer;
+}
 
-.slider_btn_text{font-size: 50px; font-weight: 900; color: $pinkWB;}
-.slider_btn:hover .slider_btn_text{color: #e8ecee;}
+.slider_btn_text {
+  font-size: 50px;
+  font-weight: 900;
+  color: $pinkWB;
+}
+.slider_btn_prev:hover #slider_arrow__left {
+  color: #e8ecee;
+}
+.slider_btn_next:hover #slider_arrow__right {
+  color: #e8ecee;
+}
+#slider_arrow__left,
+#slider_next {
+  font-size: 45px;
+  color: $pinkWB;
+}
 
 /* Cards
 ___________________________________________*/
-.s-cards{display: flex; @include flexCenter; flex-direction: column;
-    &__item-wrapper{width: 100%; display: flex; flex-wrap: wrap; @include flexCenter;
-        // width: 100%; display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; grid-gap: 11%;
-        &__item{width: 23%; display: flex; justify-content: center; align-items: center; flex-direction: column;
-            &:not(:nth-child(4n+4)){margin-right: 25px;}
-            &-img{width: 100%;}
-            &__wrapper-text{width: 100%; text-align: start;
-                &__delivery-time{text-align: start;}
-                //todo &__name{}
-                &__svg-wrapper{display: flex; margin-bottom: 5px;
-                    &__svg{width: 25px; height: 25px;}
-                    &__rate{width: 25px; height: 25px; font-size: 25px;}
-                }
-            } // wrapper-text
-            &__btn{color: white; background-color: $pinkWB; width: 92px; height: 32px; padding: 0;
-                &:hover{color: $pinkWB; background-color: white;}
-            } // btn
-        } // item
-    } // item-wrapper
+.s-cards {
+  display: flex;
+//   @include flexCenter;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  &__item-wrapper {
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    height: 800px;
+    overflow: hidden;
+    row-gap: 10px;
+    column-gap: 10px;
+    transition: all 1s;
+    &__item {
+      width: 100%;
+      display: flex;
+      height: 400px;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      &-img {
+        width: 100%;
+        height: 60%;
+        margin-bottom: 1%;
+        object-fit: cover;
+        cursor: pointer;
+      }
+      &__wrapper-text {
+        width: 100%;
+        text-align: start;
+        &__price {
+            font-size: 25px;
+            font-weight: 700;
+            cursor: pointer;
+            &:hover {
+                color: $pinkWB;
+            }
+        }
+        &__delivery-time {
+          text-align: start;
+        }
+        &__icon-wrapper {
+          display: flex;
+          margin: 5px auto;
+          font-size: 14px;
 
-    &__btn{width: 25%; color: $pinkWB; font-weight: 600; margin: 50px 0;
-        &__svg-wrapper{display: flex; @include flexCenter; color: $pinkWB;
-            &__svg{width: 15px; height: 15px; fill: $pinkWB;}
+          &:hover>i {
+            color: yellow;
+          }
+        }
+      }
+      &__btn {
+        color: white;
+        background-color: $pinkWB;
+        width: 92px;
+        height: 32px;
+        padding: 0;
+        &:hover {
+          color: $pinkWB;
+          background-color: white;
+        }
+        &.__inCart {
+          color: $pinkWB;
+          background: lightgray;
+          border: none;
+        }
+      }
+    }
+
+    &__active {
+        height: calc((4 * 400px) + 50px);
+    }
+  }
+
+  &__btn {
+    width: 25%;
+    color: $pinkWB;
+    font-weight: 600;
+    margin: 50px 0;
+    &-show_more {
+      margin-right: 1%;
+    }
+    &__icon-wrapper {
+      display: flex;
+      @include flexCenter;
+      color: $pinkWB;
+      &__svg {
+        width: 15px;
+        height: 15px;
+        fill: $pinkWB;
+      }
+    }
+  }
+}
+
+.hit {
+  width: 100%;
+  display: flex;
+  @include flexCenter;
+  font-weight: 600;
+  font-size: 35px;
+  color: $pinkWB;
+  margin-bottom: 25px;
+}
+
+/* Aside
+___________________________________________*/
+
+.aside {
+    width: 20%;
+    height: 100vh;
+    background: #fff;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+    top: 110px;
+    visibility: hidden;
+    transform: translateX(-100%);
+    transition: all 0.6s ease-in-out;
+    padding: 20px 0;
+
+    &__content {
+        width: 100%;
+    }
+
+    &__item {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 15px;
+        cursor: pointer;
+        &:hover {
+            background-color: rgba(211, 211, 211, 0.3);
+            transition: all 0.3s ease-in-out;
         }
     }
-} // s-cards
+    &__active {
+        visibility: visible;
+        transform: translateX(0);
+    }
+
+    &__link {
+        text-decoration: none;
+        color: #000;
+    }
+}
+

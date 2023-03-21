@@ -1,6 +1,6 @@
 import { cardClassName as clName } from './constants.js';
 
-const {itemKey, imgKey, wrapperTextKey, priceKey, deliveryKey, nameKey, aKey, svgKey, rateKey, btnKey} = clName;
+const {itemKey, imgKey, wrapperTextKey, priceKey, deliveryKey, nameKey, aKey, rateKey, btnKey} = clName;
 
 export function createItem ({img, cardName, price, cardRate, id, deliveryMonth, deliveryDate}) {
 
@@ -12,7 +12,7 @@ export function createItem ({img, cardName, price, cardRate, id, deliveryMonth, 
     const wrapperText = createEl('div',{class: wrapperTextKey});
     item.append(wrapperText);
 
-    const priceEl = createEl('div',{class: priceKey}, `${price} BYN`);
+    const priceEl = createEl('div',{class: priceKey}, `${price} р.`);
     wrapperText.append(priceEl);
 
     const deliveryEl = createEl('div',{class: deliveryKey}, `Delivery: ${deliveryMonth} ${deliveryDate}`);
@@ -21,13 +21,13 @@ export function createItem ({img, cardName, price, cardRate, id, deliveryMonth, 
     const name = createEl('div',{class: nameKey}, `${cardName}`);
     wrapperText.append(name);
 
-    const a = createEl('a',{class: aKey});
+    const a = createEl('a',{class: aKey, style: 'font-size: 14px;'});
     wrapperText.append(a);
 
-    const svg = createEl('i',{class: svgKey});
-    a.append(svg);
+    const starIcon = createEl('i',{class: 'fa-solid fa-star', style: 'margin-right: 5px;'});
+    a.append(starIcon);
 
-    const rate = createEl('div',{class: rateKey}, `${cardRate}`);
+    const rate = createEl('span',{class: rateKey}, `${cardRate}`);
     a.append(rate);
 
     const button = createEl('button',{class: btnKey, id : 'toCartBtn'}, 'В корзину');

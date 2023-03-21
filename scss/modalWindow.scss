@@ -1,65 +1,142 @@
 @import "variables.scss";
 
-/*! Asaide
-/*!_________________________________________________________________*/
-.aside{height: 100vh; width: 200px; position: absolute; top: 118px; z-index: 2; background-color: white; display: flex; flex-direction: column;
-    &__item{display: flex; justify-content: space-between; align-items: center; height: 35px; padding: 0 5px 0 5px;
-        &:hover{background-color: lightgrey;}
-        &__svg{width: 15px;}
-    }
-}
-.aside{display: none;}
-
 /*! Modal User
 /*!_________________________________________________________________*/
-.modal-user{width: 30vw; height: 25vh; position: fixed; z-index: 2; @include modalCenter;
-    @include modalWindow; @include flexCenter;
-    border: 1px solid transparent; border-radius: 10px;
-    &__title{font-weight: 600; font-size: 20px;}
-    &__form{display: flex; flex-direction: column; @include flexCenter; width: 75%;
-        &__input{width: 100%; margin: 10px 0;}
-        &__btn{width: 50%;}
+.modal-user {
+  width: 30vw;
+  height: 25vh;
+  position: fixed;
+  z-index: 2;
+  @include modalCenter;
+  @include modalWindow;
+  @include flexCenter;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  &__title {
+    font-weight: 600;
+    font-size: 20px;
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    @include flexCenter;
+    width: 75%;
+    &__input {
+      width: 100%;
+      margin: 10px 0;
     }
+    &__btn {
+      width: 50%;
+    }
+  }
 }
-.modal-user{display: none;}
+.modal-user {
+  display: none;
+}
 
 /*! Shoping cart
 /*!_________________________________________________________________*/
-.modal-s-cart{width: 70vw; height: 70vh; position: fixed; z-index: 2; @include modalCenter;
-    @include modalWindow; @include flexCenter;
-    &__title{@extend .modal-user__title; font-size: 35px; height: 10%; padding: 15px 0;}
-    &__content-wrapper{width: 100%; height: 80%;
-        &__row{padding: 5px; display: flex;
-            &:nth-child(2n){background-color: lightgrey;}
+.modal-s-cart {
+  width: 70vw;
+  height: 70vh;
+  position: fixed;
+  z-index: 2;
+  @include modalCenter;
+  @include modalWindow;
+  @include flexCenter;
+  &__title {
+    @extend .modal-user__title;
+    font-size: 35px;
+    height: 10%;
+    padding: 15px 0;
+  }
+  &__content-wrapper {
+    width: 100%;
+    height: 80%;
+    &__row {
+      padding: 5px;
+      display: flex;
+      &:nth-child(2n) {
+        background-color: lightgrey;
+      }
 
-            &__number{width: 10%; display: flex; @include flexCenter; @include FontsCart;}
-            &__name{width: 80%; @extend .modal-s-cart__content-wrapper__row__number;}
-            &__del{@extend .modal-s-cart__content-wrapper__row__number;}
-        }
+      &__number {
+        width: 10%;
+        display: flex;
+        @include flexCenter;
+        @include FontsCart;
+      }
+      &__name {
+        width: 80%;
+        @extend .modal-s-cart__content-wrapper__row__number;
+      }
+      &__del {
+        @extend .modal-s-cart__content-wrapper__row__number;
+      }
     }
-    &__btn{@extend .s-cards__btn; margin: 15px;}
+  }
+  &__btn {
+    @extend .s-cards__btn;
+    margin: 15px;
+  }
 }
 
-.modal-s-cart{display: none;}
-
+.modal-s-cart {
+  display: none;
+}
 
 /*! Cart Detailed
 /*!_________________________________________________________________*/
-.modal-cart-det{width: 70vw; height: 70vh; position: fixed; z-index: 2; background-color: white; display: flex; @include flexCenter;  @include modalCenter;
-    &__img-wrap{width: 50%; height: 100%;
-        &_img{object-fit: contain; width: 100%; height: 100%;}
+.modal-cart-det {
+  width: 70vw;
+  height: 70vh;
+  position: fixed;
+  z-index: 2;
+  background-color: white;
+  display: flex;
+  @include flexCenter;
+  @include modalCenter;
+  &__img-wrap {
+    width: 50%;
+    height: 100%;
+    &_img {
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
     }
-    &__desc-wrap{width: 50%; height: 85%; padding: 3%;
-        &__title{@extend .modal-s-cart__title;}
-        &__price{font-size: 25px; font-weight: 400; margin: 0 0 10px 0}
-        &__svg-wrapper{@extend .s-cards__item-wrapper__item__wrapper-text__svg-wrapper;
-            &__svg{@extend.s-cards__item-wrapper__item__wrapper-text__svg-wrapper__svg;}
-            &__rate{@extend .s-cards__item-wrapper__item__wrapper-text__svg-wrapper__rate;}
-        }
-        &__btn{@extend .s-cards__item-wrapper__item__btn; margin-top: 15px;
-            &:hover{color: $pinkWB; background-color: white;}
-        }
-    }//<!-- decript-wrap -->
-}//modal-cart-det
+  }
+  &__desc-wrap {
+    width: 50%;
+    height: 85%;
+    padding: 3%;
+    &__title {
+      @extend .modal-s-cart__title;
+    }
+    &__price {
+      font-size: 25px;
+      font-weight: 400;
+      margin: 0 0 10px 0;
+    }
+    // &__icon-wrapper {
+    //   @extend .s-cards__item-wrapper__item__wrapper-text__svg-wrapper;
+    //   &__svg {
+    //     @extend.s-cards__item-wrapper__item__wrapper-text__svg-wrapper__svg;
+    //   }
+    //   &__rate {
+    //     @extend .s-cards__item-wrapper__item__wrapper-text__svg-wrapper__rate;
+    //   }
+    // }
+    &__btn {
+      @extend .s-cards__item-wrapper__item__btn;
+      margin-top: 15px;
+      &:hover {
+        color: $pinkWB;
+        background-color: white;
+      }
+    }
+  }
+}
 
-.modal-cart-det{display: none;}
+.modal-cart-det {
+  display: none;
+}
