@@ -16,13 +16,13 @@
     <div class="s-header__burger-wrapper" >
             <i class="fa-solid fa-bars" id="burger"></i>
     </div> <!-- burger-wrapper -->
-    <a href="#!" class="s-header__logo-text-wrapper">
+    <a href="#" class="s-header__logo-text-wrapper">
         <div class="s-header__logo-text-wrapper__text">
             wildberries
         </div> <!-- text -->
     </a> <!-- logo-text-wrapper -->
     <form class="s-header__form">
-        <button type="submit" href="#!" class="s-header__form__submit">
+        <button type="button" href="#" class="s-header__form__search-btn">
             <i class="fa-solid fa-magnifying-glass"></i>
         </button> <!-- svg-wrapper -->
         <input class="s-header__form__search-inp" type="text" placeholder="Я ищу...">
@@ -47,33 +47,52 @@
 </header>           <!-- Main -->
 <main class="main">
   <aside class="aside" id="aside">
-    <a href="#" class="aside__item">Женщинам
-    <i class="fa-solid fa-arrow-down"></i>
-    </a>
-    <a href="#" class="aside__item">Мужчинам
-    <i class="fa-solid fa-arrow-down"></i>
-    </a>
-    <a href="#" class="aside__item">Обувь
-    <i class="fa-solid fa-arrow-down"></i>
-    </a>
-    <a href="#" class="aside__item">Одежда
-    <i class="fa-solid fa-arrow-down"></i>
-    </a>
-    <a href="#" class="aside__item">Дом
-    <i class="fa-solid fa-arrow-down"></i>
-    </a>
-    <a href="#" class="aside__item">Красота
-    <i class="fa-solid fa-arrow-down"></i>
-    </a>
-    <a href="#" class="aside__item">Электронка
-    <i class="fa-solid fa-arrow-down"></i>
-    </a>
-    <a href="#" class="aside__item">Аксессуары
-    <i class="fa-solid fa-arrow-down"></i>
-    </a>
-    <a href="#" class="aside__item">Мебель
-    <i class="fa-solid fa-arrow-down"></i>
-    </a>
+   <ul class="aside__content">
+        <li class="aside__item">
+            <a href="#" class="aside__link">Женщинам</a>
+            <i class="fa-solid fa-arrow-down"></i>
+            
+        </li>
+        <li class="aside__item">
+            <a href="#" class="aside__link">Мужчинам</a>
+            <i class="fa-solid fa-arrow-down"></i>
+            
+        </li>
+       <li class="aside__item">
+            <a href="#" class="aside__link">Обувь</a>
+            <i class="fa-solid fa-arrow-down"></i>
+            
+       </li>
+       <li class="aside__item">
+            <a href="#" class="aside__link">Одежда</a>
+            <i class="fa-solid fa-arrow-down"></i>
+       </li>
+       <li class="aside__item">
+            <a href="#" class="aside__link">Дом</a>
+            <i class="fa-solid fa-arrow-down"></i>
+            
+       </li>
+       <li class="aside__item">
+            <a href="#" class="aside__link">Красота</a>
+            <i class="fa-solid fa-arrow-down"></i>
+            
+       </li>
+       <li class="aside__item">
+            <a href="#" class="aside__link">Электронка</a>
+            <i class="fa-solid fa-arrow-down"></i>
+            
+       </li>
+       <li class="aside__item">
+            <a href="#" class="aside__link">Аксессуары</a>
+            <i class="fa-solid fa-arrow-down"></i>
+            
+       </li>
+       <li class="aside__item">
+            <a href="#" class="aside__link">Мебель</a>
+            <i class="fa-solid fa-arrow-down"></i>
+            
+       </li>
+   </ul>
 </aside>           
 <!-- Slider -->
 <div class="container">
@@ -104,7 +123,7 @@
     </div> <!-- item-wrapper -->
 
     <button class="s-cards__btn btn" id="show_more">
-        <span href="#!" class="s-cards__btn-show_more" id="show_more_text">Показать ещё</span> <!-- svg-wrapper -->
+        <p href="#" class="s-cards__btn-show_more" id="show_more_text">Показать ещё</p> <!-- svg-wrapper -->
          <i class="fa-solid fa-arrow-down"></i>
     </button>
 </section> <!-- s-cards -->
@@ -117,31 +136,39 @@
 <section class="s-footer section">
     <div class="s-footer__item">
         <div class="s-footer__item__row s-footer__item__row-title">Покупателям:</div>
-        <a class="s-footer__item__row">Способы оплаты</a>
-        <a class="s-footer__item__row">Возврат товара</a>
-        <a class="s-footer__item__row">Правила продажи товаров</a>
+        <ul class="s-footer__item__row s-footer__item__row-content">
+            <li class="s-footer__item__row s-footer__item__row-content__text" ><a class="s-footer__item__row">Способы оплаты</a></i >
+            <li class="s-footer__item__row s-footer__item__row-content__text" ><a class="s-footer__item__row">Возврат товара</a></i >
+            <li class="s-footer__item__row s-footer__item__row-content__text" ><a class="s-footer__item__row">Правила продажи товаров</a></i >
+        </ul>
     </div> <!-- s-footer__item -->
 
     <div class="s-footer__item">
         <div class="s-footer__item__row s-footer__item__row-title">Наши проекты:</div>
-        <a class="s-footer__item__row">WB Guru</a>
-        <a class="s-footer__item__row">Трудоустройство</a>
-        <a class="s-footer__item__row">Цифровые товары</a>
-    </div> <!-- s-footer__item -->
+        <ul class="s-footer__item__row s-footer__item__row-content">
+            <li class="s-footer__item__row s-footer__item__row-content__text" ><a class="s-footer__item__row">WB Guru</a></i >
+            <li class="s-footer__item__row s-footer__item__row-content__text" ><a class="s-footer__item__row">Трудоустройство</a></i >
+            <li class="s-footer__item__row s-footer__item__row-content__text" ><a class="s-footer__item__row">Цифровые товары</a></i >
+        </ul>
+    </div>
 
     <div class="s-footer__item">
         <div class="s-footer__item__row s-footer__item__row-title">Компания:</div>
-        <a class="s-footer__item__row">О нас</a>
-        <a class="s-footer__item__row">Контакты</a>
-        <a class="s-footer__item__row">Вакансии</a>
-    </div> <!-- s-footer__item -->
+        <ul class="s-footer__item__row s-footer__item__row-content">
+            <li class="s-footer__item__row s-footer__item__row-content__text" ><a class="s-footer__item__row">О нас</a></i >
+            <li class="s-footer__item__row s-footer__item__row-content__text" ><a class="s-footer__item__row">Контакты</a></i >
+            <li class="s-footer__item__row s-footer__item__row-content__text" ><a class="s-footer__item__row">Вакансии</a></i >
+        </ul>
+    </div>
 
     <div class="s-footer__item">
-        <div class="s-footer__item__row s-footer__item__row-title">Мы в соцсетях:</div>
-        <a class="s-footer__item__row">Вконтакте</a>
-        <a class="s-footer__item__row">Одноклассники</a>
-        <a class="s-footer__item__row">YouTube</a>
-    </div> <!-- s-footer__item -->
+        <div class="s-footer__item__row s-footer__item__row-title">Мы в соцсетях</div>
+        <ul class="s-footer__item__row s-footer__item__row-content">
+            <li class="s-footer__item__row s-footer__item__row-content__text"><i class="fa-brands fa-vk"></i><a class="s-footer__item__row">Вконтакте</a></i >
+            <li class="s-footer__item__row s-footer__item__row-content__text" ><i class="fa-brands fa-odnoklassniki"></i><a class="s-footer__item__row">Одноклассники</a></i >
+            <li class="s-footer__item__row s-footer__item__row-content__text" ><i class="fa-brands fa-youtube"></i><a class="s-footer__item__row">YouTube</a></i >
+        </ul>
+    </div>
 </section> <!-- s-footer -->
 </div> <!-- container -->
 </footer>
@@ -149,13 +176,13 @@
     <div class="footer-adapt">
         <div class="container">
             <div class="footer-adapt__wrap">
-                <div class="footer-adapt__wrap__item">
+                <div class="footer-adapt__wrap__item" id="footer_search">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
-                <div class="footer-adapt__wrap__item">
+                <div class="footer-adapt__wrap__item" id="footer_cart">
                     <i class="fa-solid fa-cart-shopping"></i>
                 </div>
-                <div class="footer-adapt__wrap__item">
+                <div class="footer-adapt__wrap__item" id="footer_user">
                     <i class="fa-solid fa-user"></i>
                 </div>
             </div>

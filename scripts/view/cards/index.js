@@ -16,6 +16,8 @@ export class CardsView {
                 item.addEventListener('click', ({target}) => {
                     if(target.id === 'toCartBtn'){
                         this.toCart(target.dataset.rowBtn);
+                        target.textContent = 'В корзине';
+                        target.classList.add('__inCart')
                     }
                 })
             }
