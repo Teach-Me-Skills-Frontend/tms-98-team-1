@@ -9,7 +9,7 @@
   display: flex;
   align-items: center;
 }
-
+.userAuthorization{display: flex; justify-content: center; margin: 1%; font-size: 25px; font-weight: 900;}
 /* Slider
 ___________________________________________*/
 .s-slider {
@@ -180,8 +180,9 @@ ___________________________________________*/
   font-weight: 600;
   font-size: 35px;
   color: $pinkWB;
-  margin-bottom: 25px;
 }
+
+.userAuthorization{@extend .hit;}
 
 /* Aside
 ___________________________________________*/
