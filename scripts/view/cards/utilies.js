@@ -6,7 +6,7 @@ export function createItem ({img, cardName, price, cardRate, id, deliveryMonth, 
 
     const item = createEl('div',{class: itemKey, id: `${id}`});
     
-    const imgEl = createEl('img',{class: imgKey, src: `${img}`});
+    const imgEl = createEl('img',{class: imgKey, src: `${img}`, 'data-img-id' : id, id : 'card_img'});
     item.append(imgEl);
 
     const wrapperText = createEl('div',{class: wrapperTextKey});
