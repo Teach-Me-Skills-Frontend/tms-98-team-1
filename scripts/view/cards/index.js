@@ -2,7 +2,7 @@ import {createItem, createEmptyItem} from './utils.js';
 import {wrapperItems} from './constants.js';
 
 export class CardsView {
-    constructor(onToCartPurchase){
+    constructor({ onToCartPurchase}){
     this.container = wrapperItems
     this.item = createItem;
     this.toCart = onToCartPurchase;
@@ -25,4 +25,6 @@ export class CardsView {
             this.container.append(createEmptyItem());
         }
     }
+
+    
 }

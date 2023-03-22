@@ -88,9 +88,6 @@ ___________________________________________*/
     row-gap: 10px;
     column-gap: 10px;
     transition: max-height 0.5s;
-    &.empty_wrapper{
-      grid-template-columns: repeat(1, 1fr); 
-    }
     &__item {
       width: 100%;
       display: flex;
@@ -171,6 +168,15 @@ ___________________________________________*/
       }
     }
   }
+  &__wrapper-empty{
+    font-size: 25px;
+    color: $pinkWB;
+    font-weight: 700;
+    &__button{
+      border-bottom: 1px dashed $pinkWB;
+      cursor: pointer;
+    }
+  } 
 }
 
 .hit {
@@ -228,10 +234,5 @@ ___________________________________________*/
 }
 
 
-.cards__wrapper-empty {
-  width: 100%;
-  font-size: 25px;
-  color: $pinkWB;
-  font-weight: 700;
-}
+
 
