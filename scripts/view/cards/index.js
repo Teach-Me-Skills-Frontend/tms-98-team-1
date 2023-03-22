@@ -18,6 +18,9 @@ export class CardsView {
                         this.toCart(target.dataset.rowBtn);
                         target.textContent = 'В корзине';
                         target.classList.add('__inCart')
+                    }else if(target.classList.contains("s-cards__item-wrapper__item-img") === 's-cards__item-wrapper__item-img'){
+                        const overlay = document.getElementById('overlay')
+                        overlay.classList.add('visible')
                     }
                 })
             }
