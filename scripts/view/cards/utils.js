@@ -39,6 +39,8 @@ export function createItem ({img, cardName, price, cardRate, id, deliveryMonth, 
 
 export function createEmptyItem(){
     const emptyItem = createEl('div',{class: 'cards__wrapper-empty'}, 'Запрашиваемые вами товары не были найдены! Повторите поиск');
+    document.getElementById('show_more').style.visibility = 'hidden';
+    document.getElementById('cards_wrapper').style = "height: 100vh; display: flex; justify-content: center; text-align: center;"
     return emptyItem
 }
 
@@ -51,5 +53,7 @@ export function createEl(tag, elProps, text = ''){
     for (const key in elProps) {
         el.setAttribute(key, elProps[key]);
     }
+    document.getElementById('show_more').style.visibility = 'visible';
+    document.getElementById('cards_wrapper').style = 'height: auto;'
     return el;
 }

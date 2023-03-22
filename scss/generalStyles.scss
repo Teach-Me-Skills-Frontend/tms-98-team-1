@@ -58,10 +58,12 @@ ul, li {
   max-width: 1400px;
   @include blockCenter;
 }
-
-/*! Header
-/*!_________________________________________________________________*/
-.header {
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #fff;
+  -webkit-box-shadow: 0 0 0px 40rem rgba(204, 121, 190, 0.1) inset;
+  transition: background-color 50000000s ease-in-out;
 }
 
 /*! Btn
@@ -88,7 +90,7 @@ ul, li {
   height: 100vh;
   position: fixed;
   visibility: hidden;
-  top: 0;
+  top: 110px;
 }
 
 /*! Modal

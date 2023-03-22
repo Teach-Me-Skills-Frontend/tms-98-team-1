@@ -17,7 +17,7 @@ ___________________________________________*/
 /* Color
 ___________________________________________*/
 
-$pinkWB: #cb11ab;
+$pinkWB: rgb(203, 17, 171);
 $modalText: black;
 $cardsText: black;
 $headerHoverAc: rgba(255, 255, 255, 0.6);
@@ -35,6 +35,7 @@ $footrText: rgba(255, 255, 255, 1);
 @mixin footrText {
   color: $footrText;
 }
+$cardsLength: 20;
 
 /* Size
 ___________________________________________*/
