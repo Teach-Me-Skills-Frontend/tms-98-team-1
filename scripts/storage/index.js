@@ -12,7 +12,7 @@ export class WBData {
   setCards = (cards) => {
       this.cards = cards;
       localStorage.setItem(LocalStorageKey.cards, JSON.stringify(this.cards))
-      return this.cards
+      return this.cards.slice()
     }
   getCards = () => {
     return this.cards.slice()

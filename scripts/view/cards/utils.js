@@ -34,11 +34,16 @@ export function createItem ({img, cardName, price, cardRate, id, deliveryMonth, 
     button.setAttribute('data-row-btn', `${id}`)
     wrapperText.append(button);
 
+    document.getElementById('show_more').style.visibility = 'visible';
+    document.getElementById('cards_wrapper').style = 'height: auto;'
+
     return item;
 }
 
 export function createEmptyItem(){
-    const emptyItem = createEl('div',{class: 'cards__wrapper-empty'}, 'Запрашиваемые вами товары не были найдены! Повторите поиск');
+    const span = createEl('span', {class : 's-cards__wrapper-empty__button', id: 'back'}, 'назад')
+    const emptyItem = createEl('div',{class: 's-cards__wrapper-empty'}, `Запрашиваемые вами товары не были найдены! Повторите поиск или вернитесь ` );
+    emptyItem.append(span)
     document.getElementById('show_more').style.visibility = 'hidden';
     document.getElementById('cards_wrapper').style = "height: 100vh; display: flex; justify-content: center; text-align: center;"
     return emptyItem
@@ -53,7 +58,5 @@ export function createEl(tag, elProps, text = ''){
     for (const key in elProps) {
         el.setAttribute(key, elProps[key]);
     }
-    document.getElementById('show_more').style.visibility = 'visible';
-    document.getElementById('cards_wrapper').style = 'height: auto;'
     return el;
 }

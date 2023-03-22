@@ -9,9 +9,9 @@ export class WBController {
     this.storage = new WBData();
     this.view = new WBView({
       cards : this.storage.getCards(),
-      onCreateCards : this.cardCreate,
+      onBackToCards : this.backToDefaultCards,
       onToCartPurchase : this.cardToCart,
-      onSearch : this.search
+      onSearch : this.search,
     });
     
   }
@@ -19,6 +19,10 @@ export class WBController {
   cardCreate = (cards) => {
     this.storage.setCards(cards)
     this.view.renderCards(cards)
+  }
+
+  backToDefaultCards = () => {
+    this.view.renderCards(this.storage.getCards())
   }
 
   cardToCart = (cardId) => {
