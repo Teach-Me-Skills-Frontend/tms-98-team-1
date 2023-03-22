@@ -9,7 +9,7 @@ export class Search {
 
     createSearchRow = () => {
             const {value} = this.seacrhInput;
-            const formattedValue = value.trim();
+            const formattedValue = value.trim().toLowerCase();
                 this.search(formattedValue)
                 this.seacrhInput.value = ''
     }

@@ -9,10 +9,16 @@ export class WBController {
     this.storage = new WBData();
     this.view = new WBView({
       cards : this.storage.getCards(),
+      cardsInCart : this.storage.getShopCards(),
       onBackToCards : this.backToDefaultCards,
       onToCartPurchase : this.cardToCart,
       onSearch : this.search,
+      onCart : this.cart,
+      onRemoveCartRow : this.removeCartRow,
+      onCreateUser : this.createUser,
     });
+
+    console.log(this.storage.getShopCards())
     
   }
 
@@ -31,6 +37,20 @@ export class WBController {
 
   search = (searchValue) => {
     this.view.renderCards(this.storage.getSearch(searchValue))
+  }
+
+  cart = () => {
+    console.log(this.storage.getShopCards())
+    this.view.renderCart(this.storage.getShopCards())
+  }
+
+  removeCartRow = (cardId) => {
+    this.storage.removeShopCard(cardId);
+    this.view.removeCartRow(cardId)
+  }
+
+  createUser = (userName) => {
+    this.storage.createUsers(userName)
   }
 
   initiliaze = (url) => {

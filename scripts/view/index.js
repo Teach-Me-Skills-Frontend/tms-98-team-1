@@ -1,29 +1,32 @@
 import { SliderView } from "./slider/index.js";
 import { CardsView } from "./cards/index.js";
-import { UserAuthorization } from "./userAuthorization/index.js"; //todo user
+import { UserAuthorization } from "./modal_windows/userModal/userAuthorization/index.js"; //todo user
 import { ModalWindowsView } from "./modal_windows/index.js";
 import { Search } from "./search/index.js";
-import { serachForm } from "./search/constants.js";
+import { searchForm } from "./search/constants.js";
 
 import { elements } from "../constants.js";
 
 export class WBView {
-  constructor({onToCartPurchase, onSearch, userName, onBackToCards, onCart}){
+  constructor({onToCartPurchase, onSearch, userName, onBackToCards, onCart, onRemoveCartRow, onCreateUser}){
     this.instans = {
       slider : new SliderView(),
       userWelcome : new UserAuthorization({userName}),
       cardsItems : new CardsView({onToCartPurchase}),
       search : new Search(onSearch),
-      modalWindows : new ModalWindowsView()
+      modalWindows : new ModalWindowsView({
+        onRemoveCartRow, 
+        onCreateUser,
+        onCloseModal : this.closeModal,
+      })
     }
     this.functions = {
       backToCards : onBackToCards,
-      searchForm : serachForm,
-      // overlayRender : this.instans.modalWindows.overlay(),
-      overlayRender : this.overlay(),
-      // cart : onCart
+      searchForm : searchForm,
+      overlayRender : this.instans.modalWindows.overlay(),
+      cart : onCart
     }
-
+    
     elements.burger.addEventListener('click',() => {
       if (elements.burger.innerHTML === '<i class="fa-solid fa-x"></i>'){
         this.removeOverlay()
@@ -31,7 +34,9 @@ export class WBView {
         this.renderAside();
       }
     })
+
     this.functions.overlayRender.addEventListener('click', this.removeOverlay)
+
     elements.showMore.addEventListener('click', () => {
       this.renderMoreCards()
       if(document.getElementById('show_more_text').textContent === 'Показать ещё'){
@@ -47,8 +52,8 @@ export class WBView {
     })
 
     this.functions.searchForm.addEventListener('submit', (event) => {
-      this.removeOverlay();
       this.renderSearch(event)
+      this.removeOverlay()
     })
 
     elements.scrollArrow.addEventListener('click', this.scrollToTop)
@@ -62,7 +67,17 @@ export class WBView {
       this.renderAside();
       this.functions.searchForm.elements['search_input'].focus();
 
-    })   
+    })
+
+    elements.searchCart.addEventListener('click', () => {
+      this.scrollToTop();
+      this.renderCartModal()
+    })
+
+     elements.searchUser.addEventListener('click', () => {
+      this.scrollToTop();
+      this.renderUserModal()
+    })
     
     elements.cardsWrapper.addEventListener('click', ({target}) => {
       if (target.id === 'back'){
@@ -70,36 +85,42 @@ export class WBView {
       }
     })
 
-    // elements.cartBtn.addEventListener('click', () => {
-    //   this.functions.cart()
-    //   document.getElementById('modal_cart').classList.add('modal_cart-active')
-    //   this.functions.overlayRender.style.visibility = 'visible';
-    //   this.functions.overlayRender.addEventListener('click', () => {
-    //     document.getElementById('modal_cart').classList.remove('modal_cart-active')
-    //   })
-    // })
-    }
-  
+    elements.cartBtn.addEventListener('click', () => {
+      this.renderCartModal()
+    })
 
+    elements.userBtn.addEventListener('click', () => {
+      this.renderUserModal()
+    })
+    }
   renderCards = (cards) => {
     this.instans.cardsItems.createCards(cards);
   }
 
   renderAside = () => {
       document.getElementById('aside').classList.add('aside__active');
-      document.body.classList.add('__lock')
-      this.functions.overlayRender.style.visibility = 'visible'
+      this.renderOverlay()
+      this.functions.overlayRender.style.top = '110px'
       elements.burger.innerHTML = '<i class="fa-solid fa-x"></i>'
   }
 
 
   removeOverlay = () => {
       this.functions.overlayRender.style.visibility = 'hidden';
-      // document.getElementById('modal_cart').visibility = 'hidden';
       document.getElementById('aside').classList.remove('aside__active');
       document.body.classList.remove('__lock');
       elements.burger.innerHTML = '<i class="fa-solid fa-bars"></i>';
+      if(document.getElementById('modal_user')){
+        document.getElementById('modal_user').style.display = 'none'
+      }
+      if(document.getElementById('modal_cart')){
+        document.getElementById('modal_cart').style.display = 'none'
+      }
+  }
 
+  renderOverlay = () => {
+    document.body.classList.add('__lock')
+    this.functions.overlayRender.style.visibility = 'visible'
   }
 
   renderMoreCards = () => {
@@ -112,22 +133,39 @@ export class WBView {
         behavior: 'smooth'
       });
     };
-
-    renderSearch = (event) => {
+  
+  renderSearch = (event) => {
       event.preventDefault()
       elements.cardsWrapper.innerHTML = '';
       this.instans.search.createSearchRow()
     }
-
-    overlay = () => {
-      const overlay = document.createElement('div');
-      overlay.classList.add('overlay')
-      document.body.append(overlay);
-      return overlay;
+  
+  renderCart = (cards) => {
+      this.instans.modalWindows.addCartContent(cards)
+    }
+    
+    removeCartRow = (cardId) => {
+      this.instans.modalWindows.removeCart(cardId)
     }
 
-    // renderCart = (cards) => {
-    //   this.instans.modalWindows.addCartContent(cards)
-    // }
+  closeModal = () => {
+    this.removeOverlay()
+  }
+
+  renderCartModal = () => {
+    this.functions.cart()
+      document.getElementById('modal_cart').style.display = 'flex'
+      this.functions.overlayRender.style.visibility = 'visible';
+      this.functions.overlayRender.style.top = '0';
+  }
+
+  renderUserModal = () => {
+    this.instans.modalWindows.openUser()
+      document.getElementById('modal_user').style.display = 'flex'
+      this.renderOverlay()
+      this.functions.overlayRender.style.top = '0';
+  }
+
+
 }
 
