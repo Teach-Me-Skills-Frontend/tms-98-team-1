@@ -40,6 +40,9 @@
   .s-header__form {
     margin: 0 15px 0 15px;
   }
+  .modal-user, .modal_cart{
+    width: 80%;
+  }
 }
 @media (max-width: 700px) {
   .s-header__form{
@@ -118,5 +121,8 @@
    }
   .s-header {
     flex-wrap: nowrap;
+  }
+  .modal-user, .modal_cart{
+    width: 100%;
   }
 }

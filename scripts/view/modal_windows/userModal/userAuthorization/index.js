@@ -4,8 +4,10 @@ export class UserAuthorization {
         this.el = createItem
 
     }
-    renderWelkome = (userName, container) => {
+    renderWelkome = (userName) => {
+        const wrap = document.getElementById('welcome_wrapper');
+        wrap.innerHTML = '';
         const item = this.el(userName);
-        container.append(item);
+        wrap.append(item);
     }
 }

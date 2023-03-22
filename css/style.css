@@ -56,7 +56,6 @@ button {
 ul, li {
   padding: 0;
   margin: 0;
-  list-style: none;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -527,18 +526,18 @@ ___________________________________________*/
 .s-cards__item-wrapper__item__wrapper-text__icon-wrapper:hover > i {
   color: yellow;
 }
-.s-cards__item-wrapper__item__btn, .modal-cart-det__desc-wrap__btn {
+.s-cards__item-wrapper__item__btn {
   color: white;
   background-color: rgb(203, 17, 171);
   width: 92px;
   height: 32px;
   padding: 0;
 }
-.s-cards__item-wrapper__item__btn:hover, .modal-cart-det__desc-wrap__btn:hover {
+.s-cards__item-wrapper__item__btn:hover {
   color: rgb(203, 17, 171);
   background-color: white;
 }
-.s-cards__item-wrapper__item__btn.__inCart, .__inCart.modal-cart-det__desc-wrap__btn {
+.s-cards__item-wrapper__item__btn.__inCart {
   color: rgb(203, 17, 171);
   background: lightgray;
   border: none;
@@ -546,7 +545,7 @@ ___________________________________________*/
 .s-cards__item-wrapper__active {
   max-height: 8050px;
 }
-.s-cards__btn, .modal-s-cart__btn {
+.s-cards__btn {
   width: 25%;
   color: rgb(203, 17, 171);
   font-weight: 600;
@@ -735,7 +734,7 @@ ___________________________________________*/
   height: 25vh;
   position: fixed;
   z-index: 2;
-  top: 50%;
+  top: 20%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
@@ -753,12 +752,12 @@ ___________________________________________*/
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  border: 1px solid transparent;
   border-radius: 10px;
 }
-.modal-user__title, .modal-s-cart__title, .modal-cart-det__desc-wrap__title {
+.modal-user__title {
   font-weight: 600;
   font-size: 20px;
+  color: rgb(203, 17, 171);
 }
 .modal-user__form {
   display: -webkit-box;
@@ -775,27 +774,41 @@ ___________________________________________*/
       -ms-flex-pack: center;
           justify-content: center;
   width: 75%;
+  height: 50%;
 }
 .modal-user__form__input {
   width: 100%;
   margin: 10px 0;
+  height: 30px;
+  border: 1px solid lightgray;
+  padding: 0 10px;
+  border-radius: 5px;
+  margin: 0 0 20px 0;
+}
+.modal-user__form__input:focus {
+  outline: none;
 }
 .modal-user__form__btn {
   width: 50%;
 }
 
-.modal-user {
-  display: none;
+.modal-user-header {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
-/*! Shoping cart
+/*! Modal Cart
 /*!_________________________________________________________________*/
-.modal-s-cart {
-  width: 70vw;
-  height: 70vh;
+.modal_cart {
+  width: 30vw;
   position: fixed;
   z-index: 2;
-  top: 50%;
+  top: 20%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
@@ -813,102 +826,96 @@ ___________________________________________*/
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  border-radius: 10px;
 }
-.modal-s-cart__title, .modal-cart-det__desc-wrap__title {
+.modal_cart-title {
   font-size: 35px;
   height: 10%;
   padding: 15px 0;
+  text-align: center;
+  color: rgb(203, 17, 171);
 }
-.modal-s-cart__content-wrapper {
+.modal_cart-content {
+  margin: 10px 0 0 0;
   width: 100%;
-  height: 80%;
-}
-.modal-s-cart__content-wrapper__row {
-  padding: 5px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
-.modal-s-cart__content-wrapper__row:nth-child(2n) {
-  background-color: lightgrey;
-}
-.modal-s-cart__content-wrapper__row__number, .modal-s-cart__content-wrapper__row__del, .modal-s-cart__content-wrapper__row__name {
-  width: 10%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  font-size: 17px;
-  font-weight: 600;
-}
-.modal-s-cart__content-wrapper__row__name {
-  width: 80%;
-}
-.modal-s-cart__btn {
-  margin: 15px;
-}
-
-.modal-s-cart {
-  display: none;
-}
-
-/*! Cart Detailed
-/*!_________________________________________________________________*/
-.modal-cart-det {
-  width: 70vw;
-  height: 70vh;
-  position: fixed;
-  z-index: 2;
-  background-color: white;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-}
-.modal-cart-det__img-wrap {
-  width: 50%;
-  height: 100%;
-}
-.modal-cart-det__img-wrap_img {
-  -o-object-fit: contain;
-     object-fit: contain;
+.modal_cart-content_item {
   width: 100%;
-  height: 100%;
-}
-.modal-cart-det__desc-wrap {
-  width: 50%;
-  height: 85%;
-  padding: 3%;
-}
-.modal-cart-det__desc-wrap__price {
-  font-size: 25px;
-  font-weight: 400;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   margin: 0 0 10px 0;
 }
-.modal-cart-det__desc-wrap__btn {
-  margin-top: 15px;
+.modal_cart-content_item td:not(:last-child) {
+  width: 35%;
+  text-align: center;
 }
-.modal-cart-det__desc-wrap__btn:hover {
-  color: rgb(203, 17, 171);
-  background-color: white;
+.modal_cart-content_item td:last-child {
+  width: 20%;
+  text-align: center;
+}
+.modal_cart-content_delete {
+  color: red;
 }
 
-.modal-cart-det {
-  display: none;
+.close-modal-window {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+}
+.close-modal-window:hover {
+  outline: 1px solid red;
+  border-radius: 20%;
+  color: red;
+}
+
+table {
+  width: 100%;
+  padding: 0 20px;
+}
+
+thead tr {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+thead tr th:not(:last-child) {
+  width: 35%;
+  text-align: center;
+}
+thead tr th:last-child {
+  width: 20%;
+  text-align: center;
+}
+
+.welcome_wrapper {
+  text-align: center;
+}
+
+.userAuthorization_text {
+  color: #fff;
 }
 
 /* Center
@@ -942,7 +949,7 @@ ___________________________________________*/
   .slider_btn_text {
     font-size: 30px;
   }
-  .s-cards__btn, .modal-s-cart__btn {
+  .s-cards__btn {
     height: 45px;
   }
   #slider_prev {
@@ -963,6 +970,9 @@ ___________________________________________*/
   .s-header__form {
     margin: 0 15px 0 15px;
   }
+  .modal-user, .modal_cart {
+    width: 80%;
+  }
 }
 @media (max-width: 700px) {
   .s-header__form {
@@ -978,10 +988,10 @@ ___________________________________________*/
     -ms-grid-columns: (1fr)[2];
     grid-template-columns: repeat(2, 1fr);
   }
-  .s-cards__item-wrapper__item__btn, .modal-cart-det__desc-wrap__btn {
+  .s-cards__item-wrapper__item__btn {
     width: 100%;
   }
-  .s-cards__btn, .modal-s-cart__btn {
+  .s-cards__btn {
     width: 60%;
   }
   .s-cards__item-wrapper__item__wrapper-text {
@@ -1012,9 +1022,9 @@ ___________________________________________*/
     background: -webkit-gradient(linear, left top, right top, from(rgb(203, 17, 171)), to(#481173));
     background: linear-gradient(90deg, rgb(203, 17, 171), #481173);
     width: 100vw;
-    max-height: 50px;
+    max-height: 51px;
     position: fixed;
-    bottom: 0;
+    bottom: -1px;
   }
   .footer-adapt__wrap {
     display: -webkit-box;
@@ -1060,5 +1070,8 @@ ___________________________________________*/
   .s-header {
     -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
+  }
+  .modal-user, .modal_cart {
+    width: 100%;
   }
 }
