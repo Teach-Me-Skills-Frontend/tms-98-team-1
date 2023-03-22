@@ -6,59 +6,75 @@ import { Search } from "./search/index.js";
 import { serachForm } from "./search/constants.js";
 
 export class WBView {
-  constructor({onToCartPurchase, onSearch}){
-    this.slider = new SliderView();
-    this.slider = new UserAuthorization(); //todo user Нужно прокинуть userName
-    this.cardsItems = new CardsView(onToCartPurchase);
-    this.search = new Search(onSearch);
-    this.modalWindows = new ModalWindowsView();
-    this.burger = document.getElementById('burger');
-    this.overlayRender = this.overlay();
-    this.cardsWrapper = document.getElementById('cards_wrapper')
-    this.showMore = document.getElementById('show_more');
-    this.scrollArrow = document.getElementById('arrow_top');
-    this.searchForm = serachForm;
+  constructor({onToCartPurchase, onSearch, userName}){
+    this.elements = {
+      burger : document.getElementById('burger'),
+      searchForm : serachForm,
+      cardsWrapper : document.getElementById('cards_wrapper'),
+      showMore : document.getElementById('show_more'),
+      scrollArrow : document.getElementById('arrow_top'),
+      overlayRender : this.overlay(),
+      searchFooter : document.getElementById('footer_search'),
+    }
+    this.instans = {
+      slider : new SliderView(),
+      userWelcome : new UserAuthorization({userName}),
+      cardsItems : new CardsView(onToCartPurchase),
+      search : new Search(onSearch),
+      modalWindows : new ModalWindowsView()
+    }
 
-    this.burger.addEventListener('click', () => {
-      document.getElementById('aside').classList.toggle('aside__active');
-      document.body.classList.add('__lock')
-      this.overlayRender.style.visibility = 'visible'
+    this.elements.burger.addEventListener('click',() => {
+      if (this.elements.burger.innerHTML === '<i class="fa-solid fa-x"></i>'){
+        this.removeOverlay()
+      } else {
+        this.renderAside();
+      }
     })
-    this.overlayRender.addEventListener('click', () => {
-      this.overlayRender.style.visibility = 'hidden'
-      document.getElementById('aside').classList.toggle('aside__active')
-      document.body.classList.remove('__lock')
-    })
-
-    this.showMore.addEventListener('click', () => {
+    this.elements.overlayRender.addEventListener('click', this.removeOverlay)
+    this.elements.showMore.addEventListener('click', () => {
       this.renderMoreCards()
       if(document.getElementById('show_more_text').textContent === 'Показать ещё'){
-        this.showMore.innerHTML = 
+        this.elements.showMore.innerHTML = 
         `<p class="s-cards__btn-show_more" id="show_more_text">Скрыть</p>
         <i class="fa-solid fa-arrow-up"></i>`     
       }
       else {
-        this.showMore.innerHTML = 
+        this.elements.showMore.innerHTML = 
         `<p class="s-cards__btn-show_more" id="show_more_text">Показать ещё</p> 
         <i class="fa-solid fa-arrow-down"></i>`
       }
     })
 
-    this.scrollArrow.addEventListener('click', this.scrollToTop)
+    this.elements.searchForm.addEventListener('submit', (event) => {
+      this.removeOverlay();
+      this.renderSearch(event)
+    })
+
+    this.elements.scrollArrow.addEventListener('click', this.scrollToTop)
 
     this.scroll = window.addEventListener('scroll', () => {
-      this.scrollArrow.classList.toggle('active', scrollY > 500)
+      this.elements.scrollArrow.classList.toggle('active', scrollY > 500)
     })
-    this.searchForm.addEventListener('submit', (event) => {
-      event.preventDefault()
-      this.cardsWrapper.innerHTML = '';
-      this.renderSerch()
-    })
+
+    this.elements.searchFooter.addEventListener('click', () => {
+      this.scrollToTop();
+      this.renderAside();
+      this.elements.searchForm.elements['search_input'].focus();
+
+    })    
     }
   
 
   renderCards = (cards) => {
-    this.cardsItems.createCards(cards);
+    this.instans.cardsItems.createCards(cards);
+  }
+
+  renderAside = () => {
+      document.getElementById('aside').classList.add('aside__active');
+      document.body.classList.add('__lock')
+      this.elements.overlayRender.style.visibility = 'visible'
+      this.elements.burger.innerHTML = '<i class="fa-solid fa-x"></i>'
   }
 
   overlay = () => {
@@ -66,6 +82,13 @@ export class WBView {
     overlay.classList.add('overlay')
     document.body.append(overlay);
     return overlay;
+  }
+
+  removeOverlay = () => {
+      this.elements.overlayRender.style.visibility = 'hidden'
+      document.getElementById('aside').classList.remove('aside__active')
+      document.body.classList.remove('__lock')
+      this.elements.burger.innerHTML = '<i class="fa-solid fa-bars"></i>'
   }
 
   renderMoreCards = () => {
@@ -79,7 +102,9 @@ export class WBView {
       });
     };
 
-    renderSerch = () => {
-      this.search.createSearchRow()
+    renderSearch = (event) => {
+      event.preventDefault()
+      this.elements.cardsWrapper.innerHTML = '';
+      this.instans.search.createSearchRow()
     }
 }

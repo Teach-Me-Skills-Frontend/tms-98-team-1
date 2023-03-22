@@ -64,6 +64,9 @@
       &:focus {
         outline: none;
       }
+      &:-internal-autofill-selected {
+        background-color: none !important;
+      }
       &::placeholder {
         color: white;
       }
